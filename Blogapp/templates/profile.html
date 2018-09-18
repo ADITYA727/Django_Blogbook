@@ -1,0 +1,24 @@
+
+
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block head %}
+
+<link href="{% static 'css/contact.css' %}"  rel="stylesheet" >
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{ autoform|crispy }}
+    {{ makeform|crispy }}
+    <button type="submit">Upload</button>
+  </form>
+</div>
+{% endblock %}

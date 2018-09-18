@@ -1,0 +1,26 @@
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      {% if user.is_authenticated %}
+      <li><a class="navbar-brand" href="#">Hi {{ user.username }}!!</a></li>
+          <li>
+            <form >
+
+            <input type="search" placeholder="Search.." name='q' style="height:40px; width:300px; margin-top:5px;">
+              <button type="submit" style="height:40px; width:100px;">Submit</button></li>
+            </form>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'contact' %}">Contact us</a></li>
+            <li><a href="{% url 'editprofile' %}">Change Profile</a></li>
+              <li><a href="{% url 'cword' %}">Change Password</a></li>
+      <li style="margin-left:100px;"><a href="{% url 'logout' %}">logout</a></li>
+      {% else %}
+        <li> <a href="{% url 'login' %}">login</a></li>
+          <li> <a href="{% url 'signup' %}">Registration</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
